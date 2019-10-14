@@ -42,7 +42,7 @@ public class Users {
 		email= keyboard.next();
 		System.out.println("Enter the user password :\n ");
 		password=keyboard.next();
-		System.out.println("Congratulations," + userName+" \nYou are now registered");
+		System.out.println("Congratulations, " + userName+" \nYou are now registered");
 	}
 	public void usersLogin() {
 		System.out.println("To login to library system to access, provide the following information\n");
