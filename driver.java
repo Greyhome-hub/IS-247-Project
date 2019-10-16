@@ -9,6 +9,20 @@ public class driver {
 		int menu = 0;
 		Users[] usersarr = new Users [20];
 		
+		// ArrayList Of Books
+		ArrayList<String> Books = new ArrayList <String>();
+		Books book1= new Books();
+		book1.setBookTitle("To Kill a Mockingbird");
+		book1.setBookAuthor("Harper Lee");
+		book1.setBookGenre("Drama");
+		book1.setBookID("09873");
+		book1.setBookPageCount(254);
+		book1.setPublicationDate("12/23/2006");
+		book1.setISBN(12345);
+		book1.setQuantityAvailable(12);
+		
+		
+		
 	//Menu do-while into Switch Statement
 	
 	do{
