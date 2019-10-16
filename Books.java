@@ -11,6 +11,9 @@ public class Books {
 	private	String BookSummary;
 	private	int quantityAvailable;
 	
+	public Books() {
+	}
+	
 	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String publicationDate,double ISBN,String BookSummary, int quantityAvailable ){
 		this.bookID=bookID;
 		this.bookTitle= bookTitle;
