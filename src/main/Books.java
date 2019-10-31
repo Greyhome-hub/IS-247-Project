@@ -1,3 +1,5 @@
+package main;
+import java.util.Scanner;
 
 public class Books {
 
@@ -26,6 +28,21 @@ public class Books {
 		this.quantityAvailable= quantityAvailable;
 		
 	}
+	
+	
+//	public Books searchBooks() {
+//		Scanner keyboard= new Scanner(System.in);
+//	    System.out.println("Which book are you searching for today?");
+//	    String booksearch = keyboard.nextLine();
+//	    for (Books book : bookList)
+//	    {
+//	        if (book.getBookTitle().contains(booksearch) || book.getBookAuthor().contains(booksearch))
+//	        {
+//	             return book; 
+//	        }
+//	    }
+//	    return null;
+//	}
 	public double getBookID() {
 		return bookID;
 	}

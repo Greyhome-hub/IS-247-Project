@@ -1,3 +1,4 @@
+package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -85,6 +86,7 @@ public class driver {
 			System.out.println("             Enter (1) for user registration          				 ");
 			System.out.println("             Enter (2) for user login                 				 ");
 			System.out.println("             Enter (3) for admin login                				 ");
+			System.out.println("             Enter (4) for book search                				 ");
 			System.out.println("             Enter (0) to exit                			  			 ");
 
 			menu = keyboard.nextInt();
@@ -104,6 +106,10 @@ public class driver {
 			break;
 
 			case 3: System.out.println("Admin Login\n");
+			break;
+			
+			case 4: System.out.println("Book Search\n");
+
 			break;
 
 
