@@ -26,12 +26,17 @@ public class BookHandler extends Books{
 		{
 			if (book.getBookTitle().contains(booksearch) || book.getBookAuthor().contains(booksearch))
 			{
-				return book; 
+				System.out.println(book.getBookTitle());
+				return book;
 			}
 		}
 		return null;
-
-
+	}
+	
+	public void addBook(Books book) {
+		
+		bookList.add(book);
+		
 	}
 
 	//create book

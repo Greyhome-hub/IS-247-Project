@@ -1,5 +1,4 @@
 package main;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class driver {
@@ -11,7 +10,9 @@ public class driver {
 		int menu = 0;
 		Users[] usersarr = new Users [20];
 
-		
+		BookHandler bh1 = new BookHandler();
+		bh1.intialBookList();
+		bh1.searchBooks();
 
 
 		//Menu do-while into Switch Statement
