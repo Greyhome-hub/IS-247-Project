@@ -115,6 +115,8 @@ public class driver {
 
 			}
 		} while(menu != 0);
+		
+		keyboard.close();
 
 
 

@@ -1,5 +1,4 @@
 package main;
-import java.util.Scanner;
 
 public class Books {
 
@@ -9,40 +8,26 @@ public class Books {
 	private	String bookGenre;
 	private	double bookPageCount;
 	private	String publicationDate;
-	private	double ISBN;
+	private	double isbn;
 	private	String BookSummary;
 	private	int quantityAvailable;
 	
 	public Books() {
 	}
 	
-	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String publicationDate,double ISBN,String BookSummary, int quantityAvailable ){
+	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String publicationDate,double isbn,String BookSummary, int quantityAvailable ){
 		this.bookID=bookID;
 		this.bookTitle= bookTitle;
 		this.bookAuthor= bookAuthor;
 		this.bookGenre= bookGenre;
 		this.bookPageCount=bookPageCount;
 		this.publicationDate= publicationDate;
-		this.ISBN= ISBN;
+		this.isbn= isbn;
 		this.BookSummary=BookSummary;
 		this.quantityAvailable= quantityAvailable;
 		
 	}
 	
-	
-//	public Books searchBooks() {
-//		Scanner keyboard= new Scanner(System.in);
-//	    System.out.println("Which book are you searching for today?");
-//	    String booksearch = keyboard.nextLine();
-//	    for (Books book : bookList)
-//	    {
-//	        if (book.getBookTitle().contains(booksearch) || book.getBookAuthor().contains(booksearch))
-//	        {
-//	             return book; 
-//	        }
-//	    }
-//	    return null;
-//	}
 	public double getBookID() {
 		return bookID;
 	}
@@ -80,10 +65,10 @@ public class Books {
 		this.publicationDate = publicationDate;
 	}
 	public double getISBN() {
-		return ISBN;
+		return isbn;
 	}
-	public void setISBN(double iSBN) {
-		ISBN = iSBN;
+	public void setISBN(double isbn) {
+		this.isbn = isbn;
 	}
 	public String getBookSummary() {
 		return BookSummary;
