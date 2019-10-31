@@ -22,7 +22,7 @@ public class driver {
 		book1.setBookGenre("Drama");
 		book1.setBookID(19873);
 		book1.setBookPageCount(254);
-		book1.setPublicationDate("12/23/2006");
+		book1.setBookPublicationDate("12/23/2006");
 		book1.setISBN(12345);
 		book1.setQuantityAvailable(12);
 		
@@ -37,7 +37,7 @@ public class driver {
 		book2.setBookGenre("Poems");
 		book2.setBookID(9873);
 		book2.setBookPageCount(254);
-		book2.setPublicationDate("12/23/2002");
+		book2.setBookPublicationDate("12/23/2002");
 		book2.setISBN(1213);
 		book2.setQuantityAvailable(12);
 		
@@ -50,7 +50,7 @@ public class driver {
 		book3.setBookGenre("Poems");
 		book3.setBookID(9873);
 		book3.setBookPageCount(253);
-		book3.setPublicationDate("12/22/1999");
+		book3.setBookPublicationDate("12/22/1999");
 		book3.setISBN(1233);
 		book3.setQuantityAvailable(23);
 		
@@ -62,7 +62,7 @@ public class driver {
 		book4.setBookGenre("Crime");
 		book4.setBookID(23872);
 		book4.setBookPageCount(465);
-		book4.setPublicationDate("01/10/2003");
+		book4.setBookPublicationDate("01/10/2003");
 		book4.setISBN(8934);
 		book4.setQuantityAvailable(33);
 		
@@ -74,7 +74,7 @@ public class driver {
 		book5.setBookGenre("History");
 		book5.setBookID(3784);
 		book5.setBookPageCount(300);
-		book5.setPublicationDate("01/02/1998");
+		book5.setBookPublicationDate("01/02/1998");
 		book5.setISBN(2345);
 		book5.setQuantityAvailable(21);
 

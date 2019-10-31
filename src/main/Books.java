@@ -2,26 +2,26 @@ package main;
 
 public class Books {
 
-	private	double bookID;
-	private	String bookTitle;
-	private	String bookAuthor;
-	private	String bookGenre;
-	private	double bookPageCount;
-	private	String publicationDate;
-	private	double isbn;
-	private	String BookSummary;
-	private	int quantityAvailable;
+	protected	double bookID;
+	protected	String bookTitle;
+	protected	String bookAuthor;
+	protected	String bookGenre;
+	protected	double bookPageCount;
+	protected	String bookPublicationDate;
+	protected	double isbn;
+	protected	String BookSummary;
+	protected	int quantityAvailable;
 	
 	public Books() {
 	}
 	
-	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String publicationDate,double isbn,String BookSummary, int quantityAvailable ){
+	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String bookPublicationDate,double isbn,String BookSummary, int quantityAvailable ){
 		this.bookID=bookID;
 		this.bookTitle= bookTitle;
 		this.bookAuthor= bookAuthor;
 		this.bookGenre= bookGenre;
 		this.bookPageCount=bookPageCount;
-		this.publicationDate= publicationDate;
+		this.bookPublicationDate= bookPublicationDate;
 		this.isbn= isbn;
 		this.BookSummary=BookSummary;
 		this.quantityAvailable= quantityAvailable;
@@ -58,11 +58,11 @@ public class Books {
 	public void setBookPageCount(double bookPageCount) {
 		this.bookPageCount = bookPageCount;
 	}
-	public String getPublicationDate() {
-		return publicationDate;
+	public String getBookPublicationDate() {
+		return bookPublicationDate;
 	}
-	public void setPublicationDate(String publicationDate) {
-		this.publicationDate = publicationDate;
+	public void setBookPublicationDate(String bookPublicationDate) {
+		this.bookPublicationDate = bookPublicationDate;
 	}
 	public double getISBN() {
 		return isbn;
