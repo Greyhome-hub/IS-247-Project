@@ -70,6 +70,21 @@ public class BookHandler extends Books{
 
 		keyboard.close();
 	}
+	public void removeBook (Books bookObject) {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Which book are you removing today?");
+		String bookToremove = keyboard.nextLine();
+
+		for (Books book : bookList)
+		{
+			if (book.getBookTitle().contains(bookToremove) || book.getBookAuthor().contains(bookToremove))
+			{
+				bookList.remove(bookToremove);
+			} else 
+			{ System.out.println("That book is not in the library");
+			}
+			}
+	}
 
 	//initial book list
 	public void intialBookList() {
