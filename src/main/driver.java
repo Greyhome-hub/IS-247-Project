@@ -12,7 +12,7 @@ public class driver {
 
 		BookHandler bh1 = new BookHandler();
 		bh1.intialBookList();
-		bh1.searchBooks();
+		
 
 
 		//Menu do-while into Switch Statement
@@ -45,6 +45,7 @@ public class driver {
 			break;
 			
 			case 4: System.out.println("Book Search\n");
+			bh1.searchBooks();
 
 			break;
 

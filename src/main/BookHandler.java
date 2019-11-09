@@ -2,7 +2,7 @@ package main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BookHandler extends Books{
+public class BookHandler {
 
 	ArrayList<Books> bookList = new ArrayList<Books>();	
 
@@ -45,28 +45,36 @@ public class BookHandler extends Books{
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("Enter book title: ");
-		book.setBookTitle(bookTitle = keyboard.nextLine());
+		String bookTitle = keyboard.nextLine();
+		book.setBookTitle(bookTitle);
 
 		System.out.println("Enter author: ");
-		book.setBookAuthor(bookAuthor = keyboard.nextLine());
+		String bookAuthor = keyboard.nextLine();
+		book.setBookAuthor(bookAuthor);
 
 		System.out.println("Enter genre: ");
-		book.setBookGenre(bookGenre = keyboard.nextLine());
+		String bookGenre = keyboard.nextLine();
+		book.setBookGenre(bookGenre);
 
 		System.out.println("Enter book ID number: ");
-		book.setBookID(bookID = keyboard.nextInt());
+		int bookID = keyboard.nextInt();
+		book.setBookID(bookID);
 
 		System.out.println("Enter page count: ");
-		book.setBookPageCount(bookPageCount = keyboard.nextInt());
+		int bookPageCount = keyboard.nextInt();
+		book.setBookPageCount(bookPageCount);
 
 		System.out.println("Enter publication date: ");
-		book.setBookPublicationDate(bookPublicationDate = keyboard.nextLine());
+		String bookPublicationDate = keyboard.nextLine();
+		book.setBookPublicationDate(bookPublicationDate);
 
 		System.out.println("Enter ISBN: ");
-		book.setISBN(isbn = keyboard.nextInt());
+		int isbn = keyboard.nextInt();
+		book.setISBN(isbn);
 
 		System.out.println("Enter quantity available: ");
-		book.setQuantityAvailable(quantityAvailable = keyboard.nextInt());
+		int quantityAvailable = keyboard.nextInt();
+		book.setQuantityAvailable(quantityAvailable);
 
 		keyboard.close();
 	}
