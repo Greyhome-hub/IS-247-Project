@@ -40,7 +40,7 @@ public class BookHandler {
 	}
 
 	//create book
-	public void createBook(Books book) {
+	public Books createBook(Books book) {
 
 		Scanner keyboard = new Scanner(System.in);
 
@@ -77,6 +77,7 @@ public class BookHandler {
 		book.setQuantityAvailable(quantityAvailable);
 
 		keyboard.close();
+		return book;
 	}
 	public void removeBook (Books bookObject) {
 		Scanner keyboard = new Scanner(System.in);

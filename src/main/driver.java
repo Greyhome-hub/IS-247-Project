@@ -1,6 +1,7 @@
 package main;
 import java.util.Scanner;
 
+
 public class driver {
 
 
@@ -13,17 +14,17 @@ public class driver {
 		BookHandler bh1 = new BookHandler();
 		bh1.intialBookList();
 		
+		Menu menu1 = new Menu(4, "Welcome to the Library");
+		menu1.setMenuItem(1, "user registration");
+		menu1.setMenuItem(2, "user login");
+		menu1.setMenuItem(3, "admin login");
+		menu1.setMenuItem(4, "book search");
 
 
 		//Menu do-while into Switch Statement
 		do{
-			System.out.println("=====================================================================");
-			System.out.println("                   Welcome to the Library                            \n");
-			System.out.println("             Enter (1) for user registration          				 ");
-			System.out.println("             Enter (2) for user login                 				 ");
-			System.out.println("             Enter (3) for admin login                				 ");
-			System.out.println("             Enter (4) for book search                				 ");
-			System.out.println("             Enter (0) to exit                			  			 ");
+			menu1.runMenu();
+
 
 			menu = keyboard.nextInt();
 
