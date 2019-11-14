@@ -95,6 +95,7 @@ public class BookHandler {
 				int bookIndex = bookList.indexOf(book);
 				bookList.remove(bookIndex);
 				System.out.println("Book Removed");
+				break;
 			} else 
 			{ System.out.println("That book is not in the library");
 			}
