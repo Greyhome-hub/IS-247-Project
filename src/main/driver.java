@@ -7,8 +7,8 @@ public class driver {
 
 	public static void main(String[] args) {
 		//String data;
-		Scanner keyboard= new Scanner(System.in);
-		int menu = 0;
+		Scanner driverKeyboard= new Scanner(System.in);
+		int menu = -1;
 		Users[] usersarr = new Users [20];
 
 		BookHandler bh1 = new BookHandler();
@@ -19,15 +19,16 @@ public class driver {
 		menu1.setMenuItem(2, "user login");
 		menu1.setMenuItem(3, "admin login");
 		menu1.setMenuItem(4, "book search");
+		
+		bh1.removeBook();
 
 
 		//Menu do-while into Switch Statement
 		do{
 			menu1.runMenu();
 
-
-			menu = keyboard.nextInt();
-
+			menu = driverKeyboard.nextInt();
+			
 			switch (menu) {
 
 			case 1: System.out.println("User Registration\n");
@@ -43,18 +44,25 @@ public class driver {
 			break;
 
 			case 3: System.out.println("Admin Login\n");
+			
 			break;
 			
 			case 4: System.out.println("Book Search\n");
 			bh1.searchBooks();
 
 			break;
-
+			
+			default: 
+				
+				menu = -1;
 
 			}
+			
+			
 		} while(menu != 0);
 		
-		keyboard.close();
+		driverKeyboard.close();
+
 
 
 

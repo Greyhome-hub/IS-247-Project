@@ -20,7 +20,7 @@ public class BookHandler {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Which book are you searching for today?");
 		String booksearch = keyboard.nextLine();
-		keyboard.close();
+		//keyboard.close();
 
 		for (Books book : bookList)
 		{
@@ -29,6 +29,8 @@ public class BookHandler {
 				System.out.println(book.getBookTitle());
 				return book;
 			}
+			else
+			{return null;}
 		}
 		return null;
 	}
@@ -79,7 +81,9 @@ public class BookHandler {
 		keyboard.close();
 		return book;
 	}
-	public void removeBook (Books bookObject) {
+	
+
+	public void removeBook () {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Which book are you removing today?");
 		String bookToremove = keyboard.nextLine();
@@ -88,7 +92,9 @@ public class BookHandler {
 		{
 			if (book.getBookTitle().contains(bookToremove) || book.getBookAuthor().contains(bookToremove))
 			{
-				bookList.remove(bookToremove);
+				int bookIndex = bookList.indexOf(book);
+				bookList.remove(bookIndex);
+				System.out.println("Book Removed");
 			} else 
 			{ System.out.println("That book is not in the library");
 			}
