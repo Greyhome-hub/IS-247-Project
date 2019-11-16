@@ -2,20 +2,20 @@ package main;
 
 public class Books {
 
-	protected	double bookID;
+	protected	long bookID;
 	protected	String bookTitle;
 	protected	String bookAuthor;
 	protected	String bookGenre;
-	protected	double bookPageCount;
+	protected	long bookPageCount;
 	protected	String bookPublicationDate;
-	protected	double isbn;
+	protected	long isbn;
 	protected	String BookSummary;
-	protected	int quantityAvailable;
+	protected	long quantityAvailable;
 	
 	public Books() {
 	}
 	
-	public Books(double bookID,String bookTitle,String bookAuthor,String bookGenre,double bookPageCount,String bookPublicationDate,double isbn,String BookSummary, int quantityAvailable ){
+	public Books(long bookID,String bookTitle,String bookAuthor,String bookGenre,long bookPageCount,String bookPublicationDate,long isbn,String BookSummary, long quantityAvailable ){
 		this.bookID=bookID;
 		this.bookTitle= bookTitle;
 		this.bookAuthor= bookAuthor;
@@ -28,10 +28,10 @@ public class Books {
 		
 	}
 	
-	public double getBookID() {
-		return bookID;
+	public String getBookID() {
+		return Long.toString(bookID);
 	}
-	public void setBookID(double bookID) {
+	public void setBookID(long bookID) {
 		this.bookID = bookID;
 	}
 	public String getBookTitle() {
@@ -52,10 +52,10 @@ public class Books {
 	public void setBookGenre(String bookGenre) {
 		this.bookGenre = bookGenre;
 	}
-	public double getBookPageCount() {
-		return bookPageCount;
+	public String getBookPageCount() {
+		return Long.toString(bookPageCount);
 	}
-	public void setBookPageCount(double bookPageCount) {
+	public void setBookPageCount(long bookPageCount) {
 		this.bookPageCount = bookPageCount;
 	}
 	public String getBookPublicationDate() {
@@ -64,10 +64,10 @@ public class Books {
 	public void setBookPublicationDate(String bookPublicationDate) {
 		this.bookPublicationDate = bookPublicationDate;
 	}
-	public double getISBN() {
-		return isbn;
+	public String getISBN() {
+		return Long.toString(isbn);
 	}
-	public void setISBN(double isbn) {
+	public void setISBN(long isbn) {
 		this.isbn = isbn;
 	}
 	public String getBookSummary() {
@@ -76,10 +76,10 @@ public class Books {
 	public void setBookSummary(String bookSummary) {
 		BookSummary = bookSummary;
 	}
-	public int getQuantityAvailable() {
-		return quantityAvailable;
+	public String getQuantityAvailable() {
+		return Long.toString(quantityAvailable);
 	}
-	public void setQuantityAvailable(int quantityAvailable) {
+	public void setQuantityAvailable(long quantityAvailable) {
 		this.quantityAvailable = quantityAvailable;
 	}
 	
