@@ -13,6 +13,7 @@ public class driver {
 
 		BookHandler bh1 = new BookHandler();
 		bh1.intialBookList();
+		bh1.createBookListFile();
 		
 		Menu menu1 = new Menu(4, "Welcome to the Library");
 		menu1.setMenuItem(1, "user registration");
@@ -52,9 +53,7 @@ public class driver {
 
 			break;
 			
-			default: 
-				
-				menu = -1;
+			default: menu = -1;
 
 			}
 			

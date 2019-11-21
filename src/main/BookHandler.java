@@ -1,10 +1,14 @@
 package main;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BookHandler {
 
 	ArrayList<Books> bookList = new ArrayList<Books>();	
+	File bookListFile = new File("BookFile.csv");
+	BookFileWriter fw = new BookFileWriter();
+	BookFileReader fr = new BookFileReader();
 
 	//getter/setter
 	public ArrayList<Books> getBookList() {
@@ -103,7 +107,7 @@ public class BookHandler {
 	}
 
 	//initial book list
-	public void intialBookList() {
+	public ArrayList<Books> intialBookList() {
 		// Creation of first book
 		Books book1= new Books();
 		bookList.add(book1);
@@ -168,6 +172,26 @@ public class BookHandler {
 		book5.setBookPublicationDate("01/02/1998");
 		book5.setISBN(2345);
 		book5.setQuantityAvailable(21);
+		return bookList;
+	}
+	
+	public void createBookListFile() {
+		if(bookListFile.exists()) {
+			System.out.println("BookFile.csv already exists");
+
+		}else {
+			System.out.println("BookFile.csv does not exist. Creating now...");
+			bookList = intialBookList();
+			fw.writeListToFile(bookList);
+			try {
+				Thread.sleep(5000);
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.println("BookFile.csv has been created");
+			
+		}
+		
 	}
 
 }
