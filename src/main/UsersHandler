@@ -1,0 +1,231 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class UserHandler {
+	ArrayList<Books> bookList = new ArrayList <Books>();
+	ArrayList<Users> userList = new ArrayList <Users>();
+	File library = new File ("BookFile.csv");
+	File users = new File ("UserFile.csv");
+
+	MyFileWriter fw = new MyFileWriter();
+	MyFileReader fr = new MyFileReader();
+	
+	
+	
+	
+public void usersRegistration(  Users userObject) {
+		
+		System.out.println("Congratulations, you are now registered");
+		userList.add(userObject);
+	}
+	public ArrayList<Users> createUserArrayList() {
+		ArrayList<Users> arrayOfUsers = new ArrayList();
+		// creating 20 users
+		Users user1 = new Users();
+		userList.add(user1);
+		user1.setUserName("James");
+		user1.setlastName("Carrew");
+		user1.setEmail("jcarrew@gmail.com");
+		user1.setPassword("ddgrewr.11");
+		user1.setUserID(22351);
+		user1.setUsersPin(1100);
+		
+		Users user2 = new Users();
+		userList.add(user2);
+		user2.setUserName("Janovy");
+		user2.setlastName("Carey");
+		user2.setEmail("jcarey@gmail.com");
+		user2.setPassword("ffr.11");
+		user2.setUserID(22332);
+		user2.setUsersPin(1160);
+		
+		Users user3 = new Users();
+		userList.add(user3);
+		user3.setUserName("Luck");
+		user3.setlastName("Scotty");
+		user3.setEmail("ls@gmail.com");
+		user3.setPassword("dmamai.11");
+		user3.setUserID(2010);
+		user3.setUsersPin(0222);
+		
+		Users user4 = new Users();
+		userList.add(user4);
+		user4.setUserName("Jimmy");
+		user4.setlastName("DeuxFois");
+		user4.setEmail("jd@gmail.com");
+		user4.setPassword("d443");
+		user4.setUserID(22003);
+		user4.setUsersPin(1091);
+		
+		Users user5 = new Users();
+		userList.add(user5);
+		user5.setUserName("Mamaye");
+		user5.setlastName("Bamba");
+		user5.setEmail("mamayeb@gmail.com");
+		user5.setPassword("dd22wr.11");
+		user5.setUserID(20001);
+		user5.setUsersPin(1510);
+		
+		Users user6 = new Users();
+		userList.add(user6);
+		user6.setUserName("Miji");
+		user6.setlastName("Mattews");
+		user6.setEmail("mm11@gmail.com");
+		user6.setPassword("ddgreijfo.2");
+		user6.setUserID(02101);
+		user6.setUsersPin(9991);
+		
+		Users user7 = new Users();
+		userList.add(user7);
+		user7.setUserName("Jammal");
+		user7.setlastName("Zemmour");
+		user7.setEmail("jzemmour@gmail.com");
+		user7.setPassword("iejej.233");
+		user7.setUserID(20001);
+		user7.setUsersPin(9030);
+		
+		return arrayOfUsers;
+	}
+	
+	public void createUserListFile () {
+		
+		if (library.exists()) {
+			System.out.println("This file exists already");
+		}
+		else {
+			System.out.println("This file does not exist yet");
+			userList = createUserArrayList();
+			fw.writeListToFile(bookList);
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("The UserFile.csv file has been created.... !");
+			
+		}
+		}
+	
+	
+		public void usersLogin(String email , String password)   {
+		boolean stat=false;	
+		ArrayList<Users> shadow=new ArrayList<Users>(userList);
+		//Books book;
+		  for(Users user:shadow ){
+		       if(user.getEmail().toLowerCase().equals(email.toLowerCase()) || 
+		    		   user.getPassword().toLowerCase().equals(password.toLowerCase()))
+		    	   stat=true;
+		 
+		   }
+		  if(stat)
+		  {
+			   
+	           System.out.println("You are now loged in");
+	           
+		  }
+		  else {
+		        System.out.println("Sorry: wrong infomation");
+
+		
+				}
+		
+		   }
+		
+		
+		public void addUser(Users userObject) {
+			userList.add(userObject);
+			
+		}
+		
+		public void displayUsers() {
+			
+			Iterator<Users> it = userList.iterator(); 
+			 System.out.println("***********START DISPLAY*************\n\n");
+			 
+			 while(it.hasNext()) {
+				Users user = it.next();
+	              System.out.println(user.getUserName() + " "+ user.getlastName() + "  "+ user.getEmail()+ "  "+ user.getPassword()+ "  "+ user.getUsersPin() + "  "+ user.getUsersID()) ;	
+			 }
+			 
+			 System.out.println("***********END DISPLAY*************\n\n");
+			
+		}
+		
+	public void seearchByID(int ID) {
+		boolean stat=false;	
+		ArrayList<Books> shadow=new ArrayList<Books>(bookList);
+		//Books book;
+		  for(Books book:shadow ){
+			// if(book.get)
+		    	   stat=true;
+		 
+		   }
+		  if(stat)
+		  {
+			   
+	           System.out.println("Book was found");
+	           
+		  }
+		  else {
+		        System.out.println("Sorry: book couldn't be found");
+
+		
+				}
+		
+		   }
+		
+		
+		
+	
+	
+	public void searchByTitle(String title) 
+	{
+
+	boolean stat=false;
+	
+	
+	ArrayList<Books> shadow=new ArrayList<Books>(bookList);
+	
+	  for(Books book:shadow ){
+	       if(book.getBookTitle().toLowerCase().equals(title.toLowerCase()))
+	    	   stat=true;		       
+	   }
+	  if(stat)
+	  {
+		   
+           System.out.println("Book was found");
+	  }
+	  else {
+	        System.out.println("Sorry: book couldn't be found");
+
+	
+			}
+	
+	   }
+	
+		
+	public void addBook(Books bookObject) {
+		bookList.add(bookObject);
+		
+	}
+		public void displayBooks() {
+				
+				Iterator<Books> it = bookList.iterator(); 
+				 System.out.println("***********START DISPLAY*************\n\n");
+				 
+				 while(it.hasNext()) {
+					Books book = it.next();
+		              System.out.println(book.getBookTitle() + " "+ book.getBookAuthor() + "  "+ book.getBookGenre() );	
+				 }
+				 
+				 System.out.println("***********END DISPLAY*************\n\n");
+				
+			}
+		
+	
+	
+	
+	
+}
