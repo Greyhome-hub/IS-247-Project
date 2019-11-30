@@ -22,7 +22,7 @@ public class BookFileReader {
 	
 	public ArrayList<Books> readCsvFile(String filename) {
 		
-		ArrayList<Books> bookList = new ArrayList();
+		ArrayList<Books> bookList = new ArrayList<>();
 		BufferedReader fileReader = null;
 		
 		try {

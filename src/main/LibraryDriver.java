@@ -2,27 +2,29 @@ package main;
 import java.util.Scanner;
 
 
-public class driver {
+public class LibraryDriver {
 
 
 	public static void main(String[] args) {
 		//String data;
 		Scanner driverKeyboard= new Scanner(System.in);
 		int menu = -1;
-		Users[] usersarr = new Users [20];
-
 		BookHandler bh1 = new BookHandler();
+		AdminHandler ah1 = new AdminHandler();
+		UsersHandler uh1 = new UsersHandler();
+		//initialize lists
 		bh1.intialBookList();
 		bh1.createBookListFile();
+		ah1.intialAdminList();
+		ah1.createAdminListFile();
+		uh1.createUserArrayList();
+		uh1.createUserListFile();
 		
-		Menu menu1 = new Menu(4, "Welcome to the Library");
+		Menu menu1 = new Menu(3, "Welcome to the Library");
 		menu1.setMenuItem(1, "user registration");
 		menu1.setMenuItem(2, "user login");
 		menu1.setMenuItem(3, "admin login");
-		menu1.setMenuItem(4, "book search");
 		
-		bh1.removeBook();
-
 
 		//Menu do-while into Switch Statement
 		do{
@@ -31,17 +33,26 @@ public class driver {
 			menu = driverKeyboard.nextInt();
 			
 			switch (menu) {
+			
+			case 0: 
+				break;
 
 			case 1: System.out.println("User Registration\n");
-
-			usersarr[0]= new Users("Name","Last Name", "email", "password");
-			usersarr[0].usersRegistration();
+			uh1.usersRegistration();
 
 			break;
 
 			case 2: System.out.println("User Login\n");
+			Scanner login = new Scanner(System.in);
+			System.out.println("Please enter email: ");
+			String email = login.nextLine();
+			System.out.println("Please enter password: ");
+			String password = login.nextLine();
+			
+			boolean loginSuccess = uh1.usersLogin(email, password);
+			if(loginSuccess == true) uh1.userMenu();
+			
 
-			usersarr[0].usersLogin();
 			break;
 
 			case 3: System.out.println("Admin Login\n");
@@ -62,30 +73,8 @@ public class driver {
 		
 		driverKeyboard.close();
 
-
-
-
-
-
 	}
 
-	/**	System.out.println("Enter the user name");
-			data= keyboard.nextLine();
-			usersarr[0].setUserName(data);
-			System.out.println(usersarr[0].userName);
-			System.out.println("Enter the user's email");
-			data=keyboard.nextLine();
-
-
-			System.out.println("Enter the user email");
-			usersarr[0].email=keyboard.next();
-
-
-			System.out.println("Enter the user password");
-			password=keyboard.next();
-			usersarr[0].setPassword(password);
-
-			usersarr[0]= new Users(userName, email, password); */
 }
 
 

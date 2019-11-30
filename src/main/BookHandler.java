@@ -1,6 +1,7 @@
 package main;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class BookHandler {
@@ -38,11 +39,11 @@ public class BookHandler {
 		}
 		return null;
 	}
-	
+
 	public void addBook(Books book) {
-		
+
 		bookList.add(book);
-		
+
 	}
 
 	//create book
@@ -82,10 +83,10 @@ public class BookHandler {
 		int quantityAvailable = keyboard.nextInt();
 		book.setQuantityAvailable(quantityAvailable);
 
-		keyboard.close();
+		//keyboard.close();
 		return book;
 	}
-	
+
 
 	public void removeBook () {
 		Scanner keyboard = new Scanner(System.in);
@@ -103,7 +104,7 @@ public class BookHandler {
 			} else 
 			{ System.out.println("That book is not in the library");
 			}
-			}
+		}
 	}
 
 	//initial book list
@@ -174,7 +175,7 @@ public class BookHandler {
 		book5.setQuantityAvailable(21);
 		return bookList;
 	}
-	
+
 	public void createBookListFile() {
 		if(bookListFile.exists()) {
 			System.out.println("BookFile.csv already exists");
@@ -189,9 +190,72 @@ public class BookHandler {
 				e.printStackTrace();
 			}
 			System.out.println("BookFile.csv has been created");
-			
+
 		}
-		
+
 	}
+
+	public void displayBooks() {
+
+		Iterator<Books> it = bookList.iterator(); 
+		System.out.println("***********START DISPLAY*************\n\n");
+
+		while(it.hasNext()) {
+			Books book = it.next();
+			System.out.println(book.getBookTitle() + " "+ book.getBookAuthor() + "  "+ book.getBookGenre() );	
+		}
+
+		System.out.println("***********END DISPLAY*************\n\n");
+
+	}
+
+	public void searchByTitle(String title) 
+	{
+
+		boolean stat=false;
+
+
+		ArrayList<Books> shadow=new ArrayList<Books>(bookList);
+
+		for(Books book:shadow ){
+			if(book.getBookTitle().toLowerCase().equals(title.toLowerCase()))
+				stat=true;		       
+		}
+		if(stat)
+		{
+
+			System.out.println("Book was found");
+		}
+		else {
+			System.out.println("Sorry: book couldn't be found");
+
+
+		}
+
+	}
+
+	public void seearchByID(int ID) {
+		boolean stat=false;	
+		ArrayList<Books> shadow=new ArrayList<Books>(bookList);
+		//Books book;
+		for(Books book:shadow ){
+			// if(book.get)
+			stat=true;
+
+		}
+		if(stat)
+		{
+
+			System.out.println("Book was found");
+
+		}
+		else {
+			System.out.println("Sorry: book couldn't be found");
+
+
+		}
+
+	}
+		
 
 }
