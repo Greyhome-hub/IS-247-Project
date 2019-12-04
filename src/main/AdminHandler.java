@@ -2,6 +2,7 @@ package main;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AdminHandler {
 	
@@ -46,7 +47,7 @@ public class AdminHandler {
 
 	}
 	
-	public void adminLogin(String email , String password)   {
+	public boolean adminLogin(String email , String password)   {
 		boolean stat=false;	
 		ArrayList<Users> shadow=new ArrayList<Users>(adminList);
 		for(Users user:shadow ){
@@ -66,9 +67,61 @@ public class AdminHandler {
 
 
 		}
+		return stat;
+
 
 	}
 	
+	public void adminMenu(BookHandler bookHandler, UsersHandler usersHandler ) {
+		Scanner menuKeyboard= new Scanner(System.in);
+		int menu = -1;
+		Menu userMenu = new Menu(7,"Welcome Admin User");
+		userMenu.setMenuItem(1, "Search Books");
+		userMenu.setMenuItem(2, "Add Book");
+		userMenu.setMenuItem(3, "Remove Book");
+		userMenu.setMenuItem(4, "User Search");
+		userMenu.setMenuItem(5, "Modify User");
+		userMenu.setMenuItem(6, "Add User");
+		userMenu.setMenuItem(7, "Remove User");
+		
+		do {
+			userMenu.runMenu();
+			menu = menuKeyboard.nextInt();
+			
+			switch (menu) {
+			case 0:
+				break;
+			case 1:
+				System.out.println("Search Books");
+				bookHandler.searchBooks();
+				break;
+			case 2:
+				System.out.println("Add Book");
+				Books book = bookHandler.createBook();
+				bookHandler.addBook(book);
+				break;
+			case 3:
+				System.out.println("Remove Book");
+				bookHandler.removeBook();
+				break;
+			case 4:
+				System.out.println("User Search");
+				break;
+			case 5:
+				System.out.println("Modify User");
+				break;
+			case 6:
+				System.out.println("Add User");
+				break;
+			case 7:
+				System.out.println("Remove User");
+				break;
+			}
+			
+		}while(menu != 0);
+		//menuKeyboard.close();
+		
+	}
 	
 
 }

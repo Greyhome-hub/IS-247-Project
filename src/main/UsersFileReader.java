@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class UsersFileReader {
 
@@ -46,10 +48,18 @@ public class UsersFileReader {
 					user.setlastName(tokens[LAST_NAME]);
 					user.setEmail(tokens[EMAIL]);
 					user.setPassword(tokens[PASSWORD]);
-					user.setCheckdBooks(tokens[CHECKDBOOKS].split(PLUS_DELIMETER));
-					user.setAllcheckdBooks(tokens[ALLCHECKDBOOKS].split(PLUS_DELIMETER));
-
-
+					String[] str1 = tokens[CHECKDBOOKS].split(PLUS_DELIMETER);
+					Long[] long1 = new Long[str1.length];
+					for(int i = 0; i < str1.length; i++) {long1[i] = Long.parseLong(str1[i]);}
+					ArrayList<Long> al1 = new ArrayList<Long>(Arrays.asList(long1));
+					
+					String str2[] = tokens[ALLCHECKDBOOKS].split(PLUS_DELIMETER);
+					Long[] long2 = new Long[str2.length];
+					for(int i = 0; i < str2.length; i++) {long2[i] = Long.parseLong(str2[i]);}
+					ArrayList<Long> al2 = new ArrayList<Long>(Arrays.asList(long2));
+					
+					user.setCheckdBooks(al1);
+					user.setAllcheckdBooks(al2);
 				}
 
 			}

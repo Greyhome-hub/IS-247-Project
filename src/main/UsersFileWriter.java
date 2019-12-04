@@ -34,10 +34,10 @@ public class UsersFileWriter {
 			fileWriter.append(COMMA_DELIMETER);
 			fileWriter.append(users.getPassword());
 			fileWriter.append(COMMA_DELIMETER);
-			String checkd = String.join("+", users.getCheckdBooks());
+			String checkd = String.join("+", users.getCheckdBooks().toString());
 			fileWriter.append(checkd);
 			fileWriter.append(COMMA_DELIMETER);
-			String allCheckd = String.join("+", users.getAllcheckdBooks());
+			String allCheckd = String.join("+", users.getAllcheckdBooks().toString());
 			fileWriter.append(allCheckd);
 
 			System.out.println("CSV file was created successfully");
@@ -79,10 +79,10 @@ public class UsersFileWriter {
 				fileWriter.append(COMMA_DELIMETER);
 				fileWriter.append(users.getPassword());
 				fileWriter.append(COMMA_DELIMETER);
-				String checkd = String.join(",", users.getCheckdBooks());
+				String checkd = String.join(",", users.getCheckdBooks().toString());
 				fileWriter.append(checkd);
 				fileWriter.append(COMMA_DELIMETER);
-				String allCheckd = String.join(",", users.getAllcheckdBooks());
+				String allCheckd = String.join(",", users.getAllcheckdBooks().toString());
 				fileWriter.append(allCheckd);
 				fileWriter.append(NEW_LINE_SEPARATOR);
 			}

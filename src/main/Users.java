@@ -1,4 +1,5 @@
 package main;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Users {
@@ -7,8 +8,8 @@ public class Users {
 	private String lastName;
 	private String email;
 	private String password;
-	private String [] checkdBooks;
-	private String [] AllcheckdBooks;
+	private ArrayList<Long> checkdBooks;
+	private ArrayList<Long> AllcheckdBooks;
 
 	
 	
@@ -16,7 +17,7 @@ public class Users {
 		
 	}
 
-	public Users(String userName,String lastName, String email, String password, String[] checkdBooks, String[] AllcheckdBooks) {
+	public Users(String userName,String lastName, String email, String password, ArrayList<Long> checkdBooks, ArrayList<Long>  AllcheckdBooks) {
 		this.userName= userName;
 		this.lastName=lastName;
 		this.email=email;
@@ -60,16 +61,16 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String[] getCheckdBooks() {
+	public ArrayList<Long> getCheckdBooks() {
 		return checkdBooks;
 	}
-	public void setCheckdBooks(String[] checkdBooks) {
+	public void setCheckdBooks(ArrayList<Long> checkdBooks) {
 		this.checkdBooks = checkdBooks;
 	}
-	public String[] getAllcheckdBooks() {
+	public ArrayList<Long> getAllcheckdBooks() {
 		return AllcheckdBooks;
 	}
-	public void setAllcheckdBooks(String[] allcheckdBooks) {
+	public void setAllcheckdBooks(ArrayList<Long> allcheckdBooks) {
 		AllcheckdBooks = allcheckdBooks;
 	}
 }

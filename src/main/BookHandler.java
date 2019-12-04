@@ -10,6 +10,8 @@ public class BookHandler {
 	File bookListFile = new File("BookFile.csv");
 	BookFileWriter fw = new BookFileWriter();
 	BookFileReader fr = new BookFileReader();
+	
+	Scanner keyboard = new Scanner(System.in);
 
 	//getter/setter
 	public ArrayList<Books> getBookList() {
@@ -22,10 +24,71 @@ public class BookHandler {
 
 	//book search
 	public Books searchBooks() {
+		int menu = -1;
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Which book are you searching for today?");
+		
+		Menu searchMenu = new Menu(3, "Please choose search method:");
+		searchMenu.setMenuItem(1, "Search by Title");
+		searchMenu.setMenuItem(2, "Search by Author");
+		searchMenu.setMenuItem(3, "Search by ID");
+		
+		do {
+			searchMenu.runMenu();
+			menu = keyboard.nextInt();
+			switch (menu) {
+			case 1: System.out.println("Enter Title");
+			
+			String titleSearch = keyboard.nextLine();
+			
+			for (Books book : bookList){
+				if (book.getBookTitle().contains(titleSearch))
+				{
+					System.out.println(book.getBookTitle());
+					return book;
+				}
+				else
+				{return null;}
+			}
+
+			break;
+			case 2: System.out.println("Enter Author");
+			
+			String authorSearch = keyboard.nextLine();
+			
+			for (Books book : bookList){
+				if (book.getBookAuthor().contains(authorSearch))
+				{
+					System.out.println(book.getBookTitle());
+					return book;
+				}
+				else
+				{return null;}
+			}
+			
+			break;
+			case 3: System.out.println("Enter ID");
+			
+			int idSearch = keyboard.nextInt();
+			
+			for (Books book : bookList){
+				if (book.getBookID() == idSearch)
+				{
+					System.out.println(book.getBookTitle());
+					return book;
+				}
+				else
+				{return null;}
+			}
+			
+			break;
+			
+			default: menu = -1;
+			}
+
+		}while(menu != 0);
+
 		String booksearch = keyboard.nextLine();
-		//keyboard.close();
+		
 
 		for (Books book : bookList)
 		{
@@ -47,7 +110,9 @@ public class BookHandler {
 	}
 
 	//create book
-	public Books createBook(Books book) {
+	public Books createBook() {
+		
+		Books book = new Books();
 
 		Scanner keyboard = new Scanner(System.in);
 
@@ -98,8 +163,14 @@ public class BookHandler {
 			if (book.getBookTitle().contains(bookToremove) || book.getBookAuthor().contains(bookToremove))
 			{
 				int bookIndex = bookList.indexOf(book);
-				bookList.remove(bookIndex);
-				System.out.println("Book Removed");
+				System.out.println("You are removing: " + book.getBookTitle() + "/nPress 1 to continue or 0 to cancel.");
+				int i = keyboard.nextInt();
+				if(i == 1) {
+					bookList.remove(bookIndex);
+					System.out.println("Book Removed");
+				}
+				else {System.out.println("Canceled");
+				}
 				break;
 			} else 
 			{ System.out.println("That book is not in the library");
@@ -218,7 +289,7 @@ public class BookHandler {
 		ArrayList<Books> shadow=new ArrayList<Books>(bookList);
 
 		for(Books book:shadow ){
-			if(book.getBookTitle().toLowerCase().equals(title.toLowerCase()))
+			if(book.getBookTitle().toLowerCase().contains(title.toLowerCase()))
 				stat=true;		       
 		}
 		if(stat)
@@ -234,15 +305,14 @@ public class BookHandler {
 
 	}
 
-	public void seearchByID(int ID) {
+	public void searchByID(long ID) {
 		boolean stat=false;	
 		ArrayList<Books> shadow=new ArrayList<Books>(bookList);
-		//Books book;
 		for(Books book:shadow ){
-			// if(book.get)
+			if(book.getBookID() == ID )
 			stat=true;
-
 		}
+		
 		if(stat)
 		{
 
@@ -255,6 +325,55 @@ public class BookHandler {
 
 		}
 
+	}
+	
+	public void bookDetails() {
+		System.out.println("Enter Book ID:");
+		long bookID = keyboard.nextLong();
+		for (Books book : bookList){
+			if (book.getBookID() == bookID)
+			{
+				System.out.println("Title: "+book.getBookTitle());
+				System.out.println("Author: "+book.getBookAuthor());
+				System.out.println("Genre: "+book.getBookGenre());
+				System.out.println("ID number: "+book.getBookID());
+				System.out.println("Publication Date: "+book.getBookPublicationDate());
+				System.out.println("Page Count: "+book.getBookPageCount());
+				System.out.println("Copies Available: "+book.getQuantityAvailable());
+			}
+			else {
+				System.out.println("Book not found");
+			}
+
+		}
+	}
+	
+	public void bookCheckout(BookHandler bh, String email) {
+		Scanner keyboard= new Scanner(System.in);
+		System.out.println("Enter Book ID");
+		long bookID = keyboard.nextLong();
+		for (Books book : bookList){
+			if (book.getBookID() == bookID){
+				long copies = book.getQuantityAvailable();
+				if(copies > 0) {
+					System.out.println("Title: "+book.getBookTitle());
+					System.out.println("Author: "+book.getBookAuthor());
+					System.out.println("Checkout? /n1: Yes /n2: No");
+					int i = keyboard.nextInt();
+					if(i == 1) {
+						copies = copies - 1;
+						book.setQuantityAvailable(copies);
+						
+					}
+					
+				}else {System.out.println("No copies available.");}
+
+			}
+			else {
+				System.out.println("Book not found");
+			}
+
+		}
 	}
 		
 

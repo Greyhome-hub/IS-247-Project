@@ -28,9 +28,14 @@ public class Books {
 		
 	}
 	
-	public String getBookID() {
+	
+	public String getBookIDString() {
 		return Long.toString(bookID);
 	}
+	public long getBookID() {
+		return bookID;
+	}
+	
 	public void setBookID(long bookID) {
 		this.bookID = bookID;
 	}
@@ -52,7 +57,10 @@ public class Books {
 	public void setBookGenre(String bookGenre) {
 		this.bookGenre = bookGenre;
 	}
-	public String getBookPageCount() {
+	public long getBookPageCount() {
+		return bookPageCount;
+	}
+	public String getBookPageCountString() {
 		return Long.toString(bookPageCount);
 	}
 	public void setBookPageCount(long bookPageCount) {
@@ -64,8 +72,11 @@ public class Books {
 	public void setBookPublicationDate(String bookPublicationDate) {
 		this.bookPublicationDate = bookPublicationDate;
 	}
-	public String getISBN() {
+	public String getISBNString() {
 		return Long.toString(isbn);
+	}
+	public long getISBN() {
+		return isbn;
 	}
 	public void setISBN(long isbn) {
 		this.isbn = isbn;
@@ -76,8 +87,11 @@ public class Books {
 	public void setBookSummary(String bookSummary) {
 		BookSummary = bookSummary;
 	}
-	public String getQuantityAvailable() {
+	public String getQuantityAvailableString() {
 		return Long.toString(quantityAvailable);
+	}
+	public long getQuantityAvailable() {
+		return quantityAvailable;
 	}
 	public void setQuantityAvailable(long quantityAvailable) {
 		this.quantityAvailable = quantityAvailable;

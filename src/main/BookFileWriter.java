@@ -32,15 +32,15 @@ public class BookFileWriter {
 			fileWriter.append(COMMA_DELIMETER);
 			fileWriter.append(book.getBookGenre());
 			fileWriter.append(COMMA_DELIMETER);
-			fileWriter.append(book.getBookID());
+			fileWriter.append(book.getBookIDString());
 			fileWriter.append(COMMA_DELIMETER);
-			fileWriter.append(book.getBookPageCount());
+			fileWriter.append(book.getBookPageCountString());
 			fileWriter.append(COMMA_DELIMETER);
 			fileWriter.append(book.getBookPublicationDate());
 			fileWriter.append(COMMA_DELIMETER);
-			fileWriter.append(book.getISBN());
+			fileWriter.append(book.getISBNString());
 			fileWriter.append(COMMA_DELIMETER);
-			fileWriter.append(book.getQuantityAvailable());
+			fileWriter.append(book.getQuantityAvailableString());
 			
 			System.out.println("CSV file was created successfully");
 			fileWriter.close();
@@ -79,15 +79,15 @@ public class BookFileWriter {
 				fileWriter.append(COMMA_DELIMETER);
 				fileWriter.append(book.getBookGenre());
 				fileWriter.append(COMMA_DELIMETER);
-				fileWriter.append(book.getBookID());
+				fileWriter.append(book.getBookIDString());
 				fileWriter.append(COMMA_DELIMETER);
-				fileWriter.append(book.getBookPageCount());
+				fileWriter.append(book.getBookPageCountString());
 				fileWriter.append(COMMA_DELIMETER);
 				fileWriter.append(book.getBookPublicationDate());
 				fileWriter.append(COMMA_DELIMETER);
-				fileWriter.append(book.getISBN());
+				fileWriter.append(book.getISBNString());
 				fileWriter.append(COMMA_DELIMETER);
-				fileWriter.append(book.getQuantityAvailable());
+				fileWriter.append(book.getQuantityAvailableString());
 				fileWriter.append(NEW_LINE_SEPARATOR);
 			}
 			

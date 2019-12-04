@@ -114,6 +114,20 @@ public class UsersHandler {
 
 		}
 	}
+	
+	public void addCheckedBook(String userEmail, long bookID) {
+		ArrayList<Users> ul1 = new ArrayList <Users>(userList);
+
+		for(Users users : ul1){
+			if(userEmail.equals(users.getEmail())) {
+				ArrayList<Long> checkedBooks = users.getCheckdBooks();
+				ArrayList<Long> allCheckedBooks = users.getAllcheckdBooks();
+				checkedBooks.add(bookID);
+				allCheckedBooks.add(bookID);
+			}
+		}
+
+	}
 
 
 	public boolean usersLogin(String email , String password)   {
@@ -162,7 +176,7 @@ public class UsersHandler {
 
 	}
 	
-	public void userMenu() {
+	public void userMenu(BookHandler bh) {
 		Scanner menuKeyboard= new Scanner(System.in);
 		int menu = -1;
 		Menu userMenu = new Menu(3,"Welcome User");
@@ -179,9 +193,11 @@ public class UsersHandler {
 				break;
 			case 1:
 				System.out.println("Search Books");
+				bh.searchBooks();
 				break;
 			case 2:
 				System.out.println("Book Details");
+				bh.bookDetails();
 				break;
 			case 3:
 				System.out.println("Book Checkout");

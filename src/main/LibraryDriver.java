@@ -9,6 +9,7 @@ public class LibraryDriver {
 		//String data;
 		Scanner driverKeyboard= new Scanner(System.in);
 		int menu = -1;
+		String activeUser = null;
 		BookHandler bh1 = new BookHandler();
 		AdminHandler ah1 = new AdminHandler();
 		UsersHandler uh1 = new UsersHandler();
@@ -19,11 +20,11 @@ public class LibraryDriver {
 		ah1.createAdminListFile();
 		uh1.createUserArrayList();
 		uh1.createUserListFile();
-		
+
 		Menu menu1 = new Menu(3, "Welcome to the Library");
-		menu1.setMenuItem(1, "user registration");
-		menu1.setMenuItem(2, "user login");
-		menu1.setMenuItem(3, "admin login");
+		menu1.setMenuItem(1, "User Registration");
+		menu1.setMenuItem(2, "User Login");
+		menu1.setMenuItem(3, "Admin Login");
 		
 
 		//Menu do-while into Switch Statement
@@ -50,21 +51,32 @@ public class LibraryDriver {
 			String password = login.nextLine();
 			
 			boolean loginSuccess = uh1.usersLogin(email, password);
-			if(loginSuccess == true) uh1.userMenu();
-			
+			if(loginSuccess == true) {
+				activeUser = email;
+				uh1.userMenu(bh1);
+				}
+			activeUser = null;
 
 			break;
 
 			case 3: System.out.println("Admin Login\n");
+			Scanner adminLogin = new Scanner(System.in);
+			System.out.println("Please enter email: ");
+			String adminEmail = adminLogin.nextLine();
+			System.out.println("Please enter password: ");
+			String adminPassword = adminLogin.nextLine();
 			
+			boolean adminLoginSuccess = ah1.adminLogin(adminEmail, adminPassword);
+			if(adminLoginSuccess == true) {
+				activeUser = adminEmail;
+				ah1.adminMenu(bh1, uh1);
+				}
+			activeUser = null;
 			break;
-			
-			case 4: System.out.println("Book Search\n");
-			bh1.searchBooks();
-
-			break;
-			
+			//ddecimal@gmail.com
+			//melvil1876
 			default: menu = -1;
+			activeUser = null;
 
 			}
 			
