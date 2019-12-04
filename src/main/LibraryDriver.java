@@ -53,7 +53,7 @@ public class LibraryDriver {
 			boolean loginSuccess = uh1.usersLogin(email, password);
 			if(loginSuccess == true) {
 				activeUser = email;
-				uh1.userMenu(bh1);
+				uh1.userMenu(uh1, bh1, activeUser);
 				}
 			activeUser = null;
 
@@ -73,8 +73,7 @@ public class LibraryDriver {
 				}
 			activeUser = null;
 			break;
-			//ddecimal@gmail.com
-			//melvil1876
+
 			default: menu = -1;
 			activeUser = null;
 

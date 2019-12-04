@@ -26,12 +26,13 @@ public class AdminHandler {
 	
 	public void addAdmin(Admin admin) {
 		adminList.add(admin);
+		fw.writeListToFile(adminList);
 	}
 	
 	public void createAdminListFile() {
 		if(adminListFile.exists()) {
 			System.out.println("AdminFile.csv already exists");
-
+			fr.readCsvFile("AdminFile.csv");
 		}else {
 			System.out.println("AdminFile.csv does not exist. Creating now...");
 			adminList = intialAdminList();
@@ -106,15 +107,22 @@ public class AdminHandler {
 				break;
 			case 4:
 				System.out.println("User Search");
+				usersHandler.searchUsers();
 				break;
 			case 5:
 				System.out.println("Modify User");
+				Scanner modifyScan = new Scanner(System.in);
+				System.out.println("Enter User Email");
+				String userEmail = modifyScan.nextLine();
+				usersHandler.modifyUser(userEmail);
 				break;
 			case 6:
 				System.out.println("Add User");
+				usersHandler.addUser();
 				break;
 			case 7:
 				System.out.println("Remove User");
+				usersHandler.removeUser();
 				break;
 			}
 			
