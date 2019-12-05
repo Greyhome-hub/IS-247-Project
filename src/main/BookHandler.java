@@ -328,7 +328,7 @@ public class BookHandler {
 				break;
 			}
 		}
-		System.out.println("Book not found");
+		
 	}
 	
 	public void bookCheckout(UsersHandler uh, String email) {
@@ -353,7 +353,6 @@ public class BookHandler {
 				}else {System.out.println("No copies available.");}
 			}
 		}
-		System.out.println("Book not found");
 	}
 		
 

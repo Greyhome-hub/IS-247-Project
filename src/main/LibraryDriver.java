@@ -14,12 +14,13 @@ public class LibraryDriver {
 		AdminHandler ah1 = new AdminHandler();
 		UsersHandler uh1 = new UsersHandler();
 		//initialize lists
-		bh1.intialBookList();
+		
 		bh1.createBookListFile();
-		ah1.intialAdminList();
 		ah1.createAdminListFile();
-		uh1.createUserArrayList();
 		uh1.createUserListFile();
+		bh1.intialBookList();
+		ah1.intialAdminList();
+		uh1.createUserArrayList();
 
 		Menu menu1 = new Menu(3, "Welcome to the Library");
 		menu1.setMenuItem(1, "User Registration");

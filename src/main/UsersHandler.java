@@ -48,17 +48,19 @@ public class UsersHandler {
 		longList.add((long) 0);
 		// creating 20 users
 		Users user1 = new Users();
-		userList.add(user1);
+		arrayOfUsers.add(user1);
 		user1.setUserName("James");
 		user1.setlastName("Carrew");
 		user1.setEmail("jcarrew@gmail.com");
 		user1.setPassword("ddgrewr.11");
 		user1.setCheckdBooks(longList);
 		user1.setAllcheckdBooks(longList);
+		
+
 
 
 		Users user2 = new Users();
-		userList.add(user2);
+		arrayOfUsers.add(user2);
 		user2.setUserName("Janovy");
 		user2.setlastName("Carey");
 		user2.setEmail("jcarey@gmail.com");
@@ -68,7 +70,7 @@ public class UsersHandler {
 
 
 		Users user3 = new Users();
-		userList.add(user3);
+		arrayOfUsers.add(user3);
 		user3.setUserName("Luck");
 		user3.setlastName("Scotty");
 		user3.setEmail("ls@gmail.com");
@@ -77,7 +79,7 @@ public class UsersHandler {
 		user3.setAllcheckdBooks(longList);
 
 		Users user4 = new Users();
-		userList.add(user4);
+		arrayOfUsers.add(user4);
 		user4.setUserName("Jimmy");
 		user4.setlastName("DeuxFois");
 		user4.setEmail("jd@gmail.com");
@@ -86,7 +88,7 @@ public class UsersHandler {
 		user4.setAllcheckdBooks(longList);
 
 		Users user5 = new Users();
-		userList.add(user5);
+		arrayOfUsers.add(user5);
 		user5.setUserName("Mamaye");
 		user5.setlastName("Bamba");
 		user5.setEmail("mamayeb@gmail.com");
@@ -96,7 +98,7 @@ public class UsersHandler {
 
 
 		Users user6 = new Users();
-		userList.add(user6);
+		arrayOfUsers.add(user6);
 		user6.setUserName("Miji");
 		user6.setlastName("Mattews");
 		user6.setEmail("mm11@gmail.com");
@@ -106,7 +108,7 @@ public class UsersHandler {
 
 
 		Users user7 = new Users();
-		userList.add(user7);
+		arrayOfUsers.add(user7);
 		user7.setUserName("Jammal");
 		user7.setlastName("Zemmour");
 		user7.setEmail("jzemmour@gmail.com");
