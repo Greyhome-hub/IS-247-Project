@@ -42,6 +42,7 @@ public class AdminFileReader {
 					admin.setlastName(tokens[LAST_NAME]);
 					admin.setEmail(tokens[EMAIL]);
 					admin.setPassword(tokens[PASSWORD]);
+					adminList.add(admin);
 				}
 
 			}

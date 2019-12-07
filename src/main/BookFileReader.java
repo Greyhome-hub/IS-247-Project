@@ -50,6 +50,7 @@ public class BookFileReader {
 					book.setBookPublicationDate(tokens[BOOK_PUBLICATION_DATE]);
 					book.setISBN(Long.valueOf(tokens[ISBN]));
 					book.setQuantityAvailable(Long.valueOf(tokens[QUANTITY_AVAILABLE]));
+					bookList.add(book);
 
 				}
 				

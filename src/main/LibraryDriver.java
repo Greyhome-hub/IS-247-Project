@@ -14,13 +14,13 @@ public class LibraryDriver {
 		AdminHandler ah1 = new AdminHandler();
 		UsersHandler uh1 = new UsersHandler();
 		//initialize lists
-		
+		//bh1.intialBookList();
+		//ah1.intialAdminList();
+		//uh1.createUserArrayList();
 		bh1.createBookListFile();
 		ah1.createAdminListFile();
 		uh1.createUserListFile();
-		bh1.intialBookList();
-		ah1.intialAdminList();
-		uh1.createUserArrayList();
+		
 
 		Menu menu1 = new Menu(3, "Welcome to the Library");
 		menu1.setMenuItem(1, "User Registration");
@@ -31,12 +31,16 @@ public class LibraryDriver {
 		//Menu do-while into Switch Statement
 		do{
 			menu1.runMenu();
+			uh1.userList = uh1.fr.readCsvFile("UsersFile.csv");
+			bh1.bookList = bh1.fr.readCsvFile("BookFile.csv");
+			ah1.adminList = ah1.fr.readCsvFile("AdminFile.csv");
 
 			menu = driverKeyboard.nextInt();
 			
 			switch (menu) {
 			
 			case 0: 
+				
 				break;
 
 			case 1: System.out.println("User Registration\n");
@@ -54,8 +58,11 @@ public class LibraryDriver {
 			boolean loginSuccess = uh1.usersLogin(email, password);
 			if(loginSuccess == true) {
 				activeUser = email;
+				password = null;
 				uh1.userMenu(uh1, bh1, activeUser);
 				}
+			uh1.fw.writeListToFile(uh1.userList);
+			bh1.fw.writeListToFile(bh1.bookList);
 			activeUser = null;
 
 			break;
@@ -72,6 +79,7 @@ public class LibraryDriver {
 				activeUser = adminEmail;
 				ah1.adminMenu(bh1, uh1);
 				}
+			bh1.fw.writeListToFile(bh1.bookList);
 			activeUser = null;
 			break;
 

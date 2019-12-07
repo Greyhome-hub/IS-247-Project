@@ -118,7 +118,11 @@ public class UsersHandler {
 
 		return arrayOfUsers;
 	}
-
+	
+	public void writeUserListFile() {
+		fw.writeListToFile(userList);
+	}
+	
 	public void createUserListFile () {
 		if (userListFile.exists()) {
 			System.out.println("UsersFile.csv already exists");
@@ -140,10 +144,10 @@ public class UsersHandler {
 	}
 	
 	public void addCheckedBook(String userEmail, long bookID) {
-		ArrayList<Users> ul1 = new ArrayList <Users>(userList);
+		//ArrayList<Users> ul1 = new ArrayList <Users>(userList);
 
-		for(Users users : ul1){
-			if(userEmail.equals(users.getEmail())) {
+		for(Users users : userList){
+			if(userEmail.toLowerCase().equals(users.getEmail().toLowerCase())) {
 				ArrayList<Long> checkedBooks = new ArrayList<Long>(1);
 				checkedBooks = users.getCheckdBooks();
 				ArrayList<Long> allCheckedBooks = new ArrayList<Long>(1);
@@ -159,6 +163,7 @@ public class UsersHandler {
 
 	public boolean usersLogin(String email , String password)   {
 		boolean stat=false;	
+		fr.readCsvFile("UsersFile.csv");
 		ArrayList<Users> shadow=new ArrayList<Users>(userList);
 		//Books book;
 		for(Users user:shadow ){
@@ -211,15 +216,15 @@ public class UsersHandler {
 	
 	public void removeUser () {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Which user are you removing?");
+		System.out.println("Enter user email to remove:");
 		String userToRemove = keyboard.nextLine();
 
 		for (Users user: userList)
 		{
-			if (user.getEmail().contains(userToRemove))
+			if (user.getEmail().toLowerCase().contains(userToRemove.toLowerCase()))
 			{
 				int userIndex = userList.indexOf(user);
-				System.out.println("You are removing: " + user.getUserName() + " " + user.getlastName()+ "/nPress 1 to continue or 0 to cancel.");
+				System.out.println("You are removing: " + user.getUserName() + " " + user.getlastName()+ "\nPress 1 to continue or 0 to cancel.");
 				int i = keyboard.nextInt();
 				if(i == 1) {
 					userList.remove(userIndex);
@@ -229,8 +234,6 @@ public class UsersHandler {
 				else {System.out.println("Canceled");
 				}
 				break;
-			} else 
-			{ System.out.println("That user is not on the user list");
 			}
 		}
 	}
@@ -249,13 +252,11 @@ public class UsersHandler {
 
 		String temp;
 
-		ArrayList<Users> shadow=new ArrayList<Users>(userList);
+		//ArrayList<Users> shadow=new ArrayList<Users>(userList);
 
+		for(Users user: userList){
 
-
-		for(Users user:shadow ){
-
-			if(user.getUserName().toLowerCase().equals(userEmail.toLowerCase()))
+			if(user.getEmail().toLowerCase().equals(userEmail.toLowerCase()))
 
 			{
 
@@ -301,11 +302,7 @@ public class UsersHandler {
 
 			}
 
-			if(stat){}
-
-			else {
-				System.out.println("Sorry:"+userEmail+" couldn't be found");
-			}
+			//if(stat){}
 		}
 		fw.writeListToFile(userList);
 
@@ -388,7 +385,7 @@ public class UsersHandler {
 			switch (menu) {
 			case 0:
 				System.out.println("Exiting");
-				fw.writeListToFile(usersList);
+				//fw.writeListToFile(usersList);
 				break;
 			case 1:
 				System.out.println("Search Books");
@@ -407,8 +404,15 @@ public class UsersHandler {
 			}
 			
 		}while(menu != 0);
-		//menuKeyboard.close();
 		
+	}
+	
+	public void checkInBook(long bookID, String user) {
+		for(Users users : userList){
+			if(user.toLowerCase().equals(users.getEmail().toLowerCase())) {
+				ArrayList<Long> checkd = new ArrayList<>(users.getCheckdBooks());
+			}
+		}
 	}
 
 }

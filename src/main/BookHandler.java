@@ -139,15 +139,15 @@ public class BookHandler {
 
 	public void removeBook () {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Which book are you removing today?");
-		String bookToremove = keyboard.nextLine();
+		System.out.println("Enter book ID for removal:");
+		long bookToremove = keyboard.nextLong();
 
 		for (Books book : bookList)
 		{
-			if (book.getBookTitle().contains(bookToremove) || book.getBookAuthor().contains(bookToremove))
+			if (book.getBookID() == bookToremove)
 			{
 				int bookIndex = bookList.indexOf(book);
-				System.out.println("You are removing: " + book.getBookTitle() + "/nPress 1 to continue or 0 to cancel.");
+				System.out.println("You are removing: " + book.getBookTitle() + "\nPress 1 to continue or 0 to cancel.");
 				int i = keyboard.nextInt();
 				if(i == 1) {
 					bookList.remove(bookIndex);
@@ -157,8 +157,6 @@ public class BookHandler {
 				else {System.out.println("Canceled");
 				}
 				break;
-			} else 
-			{ System.out.println("That book is not in the library");
 			}
 		}
 	}
@@ -332,9 +330,9 @@ public class BookHandler {
 	}
 	
 	public void bookCheckout(UsersHandler uh, String email) {
-		Scanner keyboard= new Scanner(System.in);
+		Scanner checkoutKeyboard= new Scanner(System.in);
 		System.out.println("Enter Book ID");
-		long bookID = keyboard.nextLong();
+		long bookID = checkoutKeyboard.nextLong();
 		for (Books book : bookList){
 			if (book.getBookID() == bookID){
 				long copies = book.getQuantityAvailable();
@@ -344,15 +342,27 @@ public class BookHandler {
 					System.out.println("Checkout? \n1: Yes \n2: No");
 					int i = keyboard.nextInt();
 					if(i == 1) {
-						copies = copies - 1;
+						copies--;
 						book.setQuantityAvailable(copies);
 						uh.addCheckedBook(email, bookID);
+						fw.writeListToFile(bookList);
 						System.out.println("Successfully checked out" + book.getBookTitle());
 						break;
 					}
 				}else {System.out.println("No copies available.");}
 			}
 		}
+	}
+	
+	public void bookCheckIn(long bookID) {
+		for(Books book: bookList) {
+			if(book.getBookID() == bookID) {
+				long copies = book.getQuantityAvailable();
+				copies++;
+				book.setQuantityAvailable(copies);
+			}
+		}
+		
 	}
 		
 

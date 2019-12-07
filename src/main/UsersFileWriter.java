@@ -11,6 +11,8 @@ public class UsersFileWriter {
 		//CSV delimeters
 		final String COMMA_DELIMETER = ",";
 		final String NEW_LINE_SEPARATOR = "\n";
+		final String PLUS_DELIMETER = "+";
+
 
 		//CSV header
 		final String FILE_HEADER = "userName, lastName, email, password, checkdBooks, AllcheckdBooks";
@@ -34,10 +36,10 @@ public class UsersFileWriter {
 			fileWriter.append(COMMA_DELIMETER);
 			fileWriter.append(users.getPassword());
 			fileWriter.append(COMMA_DELIMETER);
-			String checkd = String.join("_", users.getCheckdBooks().toString());
+			String checkd = String.join(PLUS_DELIMETER, users.getCheckdBooks().toString());
 			fileWriter.append(checkd);
 			fileWriter.append(COMMA_DELIMETER);
-			String allCheckd = String.join("_", users.getAllcheckdBooks().toString());
+			String allCheckd = String.join(PLUS_DELIMETER, users.getAllcheckdBooks().toString());
 			fileWriter.append(allCheckd);
 
 			System.out.println("CSV file was created successfully");
@@ -51,9 +53,10 @@ public class UsersFileWriter {
 
 	public void writeListToFile(ArrayList<Users> usersList) {
 
-		//CSV delimeters
+		//CSV delimiters
 		final String COMMA_DELIMETER = ",";
 		final String NEW_LINE_SEPARATOR = "\n";
+		final String PLUS_DELIMETER = "+";
 
 		//CSV header
 		final String FILE_HEADER = "userName, lastName, email, password";
@@ -79,10 +82,18 @@ public class UsersFileWriter {
 				fileWriter.append(COMMA_DELIMETER);
 				fileWriter.append(users.getPassword());
 				fileWriter.append(COMMA_DELIMETER);
-				String checkd = String.join("_", users.getCheckdBooks().toString());
+				//take array list of checked out books and convert it to string with each item
+				//separated by a + delimiter
+				ArrayList<Long> checkdArray = new ArrayList<>(users.getCheckdBooks());
+				ArrayList<String> checkdStringArray = new ArrayList<>();
+				for(Long longs : checkdArray) {checkdStringArray.add(longs.toString());}
+				String checkd = String.join(PLUS_DELIMETER, checkdStringArray);
 				fileWriter.append(checkd);
 				fileWriter.append(COMMA_DELIMETER);
-				String allCheckd = String.join("_", users.getAllcheckdBooks().toString());
+				ArrayList<Long> allCheckdArray = new ArrayList<>(users.getCheckdBooks());
+				ArrayList<String> allCheckdStringArray = new ArrayList<>();
+				for(Long longs : allCheckdArray) {allCheckdStringArray.add(longs.toString());}
+				String allCheckd = String.join(PLUS_DELIMETER, allCheckdStringArray);
 				fileWriter.append(allCheckd);
 				fileWriter.append(NEW_LINE_SEPARATOR);
 			}

@@ -11,7 +11,7 @@ public class UsersFileReader {
 
 	//CSV delimiters
 	final String COMMA_DELIMETER = ",";
-	final String PLUS_DELIMETER = "+";
+	final String PLUS_DELIMETER = "\\+";
 
 	//Attribute index
 	private static final int USER_NAME = 0;
@@ -53,25 +53,26 @@ public class UsersFileReader {
 					for(int i = 0; i < str1.length; i++) {long1[i] = Long.parseLong(str1[i]);}
 					ArrayList<Long> al1 = new ArrayList<Long>(Arrays.asList(long1));
 					
-					String str2[] = tokens[ALLCHECKDBOOKS].split(PLUS_DELIMETER);
+					String[] str2 = tokens[ALLCHECKDBOOKS].split(PLUS_DELIMETER);
 					Long[] long2 = new Long[str2.length];
 					for(int i = 0; i < str2.length; i++) {long2[i] = Long.parseLong(str2[i]);}
 					ArrayList<Long> al2 = new ArrayList<Long>(Arrays.asList(long2));
 					
 					user.setCheckdBooks(al1);
 					user.setAllcheckdBooks(al2);
+					usersList.add(user);
 				}
 
 			}
 
 		}catch(Exception e) {
-			System.out.println("Error in Book list CSV file reader!");
+			System.out.println("Error in User list CSV file reader!");
 			e.printStackTrace();
 		}finally {
 			try {
 				fileReader.close();
 			}catch (IOException e) {
-				System.out.println("Error while closing book file reader!");
+				System.out.println("Error while closing user file reader!");
 				e.printStackTrace();
 			}
 		}
