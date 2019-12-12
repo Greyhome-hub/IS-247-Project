@@ -267,6 +267,7 @@ public class UsersHandler {
 	                                         + "2)for last name \n3)for Email");
 
 				choice=key.nextInt();
+				Scanner input =new Scanner(System.in);
 
 				switch(choice)
 
@@ -274,7 +275,7 @@ public class UsersHandler {
 
 				case 1:System.out.println("Enter first name:");
 
-				temp=key.next();
+				temp=input.nextLine();
 
 				user.setUserName(temp);
 
@@ -282,7 +283,7 @@ public class UsersHandler {
 
 				case 2: System.out.println("Enter last name");
 
-				temp=key.nextLine();
+				temp=input.nextLine();
 
 				user.setlastName(temp);
 
@@ -290,7 +291,7 @@ public class UsersHandler {
 
 				case 3:System.out.println("Enter Email");
 
-				temp=key.nextLine();
+				temp=input.nextLine();
 
 				user.setEmail(temp);
 
@@ -331,6 +332,7 @@ public class UsersHandler {
 		searchMenu.setMenuItem(2, "Search by Email");
 		
 		do {
+			boolean stat = false;
 			searchMenu.runMenu();
 			menu = keyboard.nextInt();
 			Scanner search = new Scanner(System.in);
@@ -338,7 +340,7 @@ public class UsersHandler {
 			case 0:
 				break;
 			case 1: System.out.println("Enter Name");
-			
+			stat = false;
 			String nameSearch = search.nextLine();
 			
 			for (Users user : userList){
@@ -347,10 +349,11 @@ public class UsersHandler {
 					System.out.println(user.getEmail());
 				}
 			}
+			if (stat == false)System.out.println("No results found");
 
 			break;
 			case 2: System.out.println("Enter email");
-			
+			stat = false;
 			String emailSearch = search.nextLine();
 			
 			for (Users user : userList){
@@ -360,7 +363,7 @@ public class UsersHandler {
 
 				}
 			}
-			
+			if (stat == false)System.out.println("No results found");
 			break;
 			
 			default: menu = -1;

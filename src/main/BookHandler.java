@@ -26,13 +26,13 @@ public class BookHandler {
 	public void searchBooks() {
 		int menu = -1;
 		Scanner keyboard = new Scanner(System.in);
-		
 		Menu searchMenu = new Menu(3, "Please choose search method:");
 		searchMenu.setMenuItem(1, "Search by Title");
 		searchMenu.setMenuItem(2, "Search by Author");
 		searchMenu.setMenuItem(3, "Search by ID");
 		
 		do {
+			boolean stat = false;
 			searchMenu.runMenu();
 			menu = keyboard.nextInt();
 			Scanner search = new Scanner(System.in);
@@ -40,18 +40,22 @@ public class BookHandler {
 			case 0:
 				break;
 			case 1: System.out.println("Enter Title");
-			
+			stat=false;
 			String titleSearch = search.nextLine();
 			
 			for (Books book : bookList){
 				if (book.getBookTitle().toLowerCase().contains(titleSearch.toLowerCase())){
 					System.out.println(book.getBookTitle());
 					System.out.println(book.getBookID());
+					stat =true;
 				}
 			}
+			
+			if(stat == false)System.out.println("No results found");
 
 			break;
 			case 2: System.out.println("Enter Author");
+			stat=false;
 			
 			String authorSearch = search.nextLine();
 			
@@ -59,12 +63,14 @@ public class BookHandler {
 				if (book.getBookAuthor().toLowerCase().contains(authorSearch.toLowerCase())){
 					System.out.println(book.getBookTitle());
 					System.out.println(book.getBookID());
-
+					stat =true;
 				}
 			}
+			if(stat == false)System.out.println("No results found");
 			
 			break;
 			case 3: System.out.println("Enter ID");
+			stat=false;
 			
 			int idSearch = search.nextInt();
 			
@@ -72,9 +78,11 @@ public class BookHandler {
 				if (book.getBookID() == idSearch){
 					System.out.println(book.getBookTitle());
 					System.out.println(book.getBookID());
+					stat =true;
 				}
 
 			}
+			if(stat == false)System.out.println("No results found");
 			
 			break;
 			
